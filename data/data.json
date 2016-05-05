@@ -1,0 +1,67 @@
+{
+    "Avatar": "images/avatar.jpg",
+    "Name": "Nguyễn Viết Trí",
+    "Headline": "Student at HCMUS",
+    "Location": "Ho Chi Minh city",
+    "Industry": "Internet",
+    
+    "Summary": "Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.\n\n Currently CEO at LinkedIn, the web's largest and most powerful network of professionals.\n\n Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.\n\n Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.\n\n Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance",
+    
+    "Experience":
+    [
+        {
+            "Roll": "Member, Board of Directors",
+            "Company": "Intuit",
+            "StartDate": "April 2012",
+            "EndDate": "Present",
+            "Description": "With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions."
+        },
+        {
+            "Roll": "Member, Board of Directors",
+            "Company": "Bolybi Sneakers Shop",
+            "StartDate": "Aug 2015",
+            "EndDate": "Present",
+            "Description": "With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions."
+        }
+    ],
+    
+    "Skills":
+    [
+        {
+            "Skill": "Web Development"
+        },
+        {
+            "Skill": "Shop Management"
+        },
+        {
+            "Skill": "App Developemnt"
+        }
+    ],
+    
+    "Projects":
+    [
+        {
+            "Name": "BOLYBI clothings store",
+            "StartDate": "Aug 2015",
+            "EndDate": "Present",
+            "Description": "With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions."
+        },
+        {
+            "Name": "Midterm PTUDW",
+            "StartDate": "April 2016",
+            "EndDate": "Present",
+            "Description": "This is the midterm project."
+        }
+    ],
+    "Education":
+    [
+        {
+            "Name": "BOLYBI clothings store",
+            "Degree": "Bachelor",
+            "Mojor": "Information Technology",
+            "StartDate": "Aug 2015",
+            "EndDate": "Present",
+            "imgSrc": "images/hcmus.png"
+        }
+    ]
+}
