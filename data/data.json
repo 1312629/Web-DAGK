@@ -1,6 +1,7 @@
 {
     "Avatar": "images/avatar.jpg",
-    "Name": "Nguyễn Viết Trí",
+    "FName": "Nguyễn Viết",
+    "LName": "Trí",
     "Headline": "Student at HCMUS",
     "Location": "Ho Chi Minh city",
     "Industry": "Internet",
@@ -34,7 +35,10 @@
             "Skill": "Shop Management"
         },
         {
-            "Skill": "App Developemnt"
+            "Skill": "App Development"
+        },
+        {
+            "Skill": "Mobile App Development"
         }
     ],
     

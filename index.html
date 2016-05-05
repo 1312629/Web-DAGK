@@ -2,35 +2,81 @@
 <html lang="en"
 <head>
     <meta charset="UTF-8" />
-    <title>Nguyen Viet Tri | LinkedIn</title>
+    <title>Nguyen Viet Tri | 1312629</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="script/angular.js"></script>
+    <script type="text/javascript" src="script/app.js"></script>
 </head>
 
-<body>
-    <div id="profile-page">
+<body ng-app="Midterm">
+    <div id="profile-page" ng-controller="MidtermCtrl">
         <img id="cover-image" src="images/cover-image.jpg"  alt="cover-image">
         <div id="profile-content">
             <div class="profile-topcard">
                 <div class="profile-avatar">
+                    <div class="container">
+                        <img id="profile-image" ng-src={{Avatar}}>
+                        <div class="standard-form" style="top:10%;" ng-show="avatar === 1">
+                            <h5 class="form-title">Profile Image</h5>
+                            <input type=text ng-model="temp" style="width:95%;">
+                            <div>
+                                <input type=submit class="btn-submit" value="Save" ng-click="saveAvatar()">
+                                <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="avatar=0">
+                            </div>
+                        </div>
+                    </div>
                     <a id="edit-profileImg-btn" class="overlay-button edit-button" ng-click="profileImageEditShow()" style="height: 28px; width: 28px;"></a>
-                    <img id="profile-image" src="images/avatar.jpg">
                 </div>
                 <div class="profile-overview">
                         <div class="overview-content">
                             <div class="overview-content-name">
-                                <h1>Nguyen Viet Tri</h1>
+                                <div class="container">
+                                    <h1>{{Name}}</h1>
+                                    <div class="standard-form" ng-show="name === 1">
+                                        <h5 class="form-title">Name</h5>
+                                        <div>
+                                            <input type=text ng-model="FName">
+                                            <input type=text ng-model="LName">
+                                        </div>
+                                        <div>
+                                            <input type=submit class="btn-submit" value="Save" ng-click="saveName()">
+                                            <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="name=0">
+                                        </div>
+                                    </div>
+                                </div>
                                 <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 28px; width: 28px;"></a>
                             </div>
                             <div class="overview-headline">
-                                <h2>Student at HCMUS</h2>
-                                <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 24px; width: 24px;"></a>
+                                <div class="container">
+                                    <h2>{{Headline}}</h2>
+                                    <div class="standard-form" ng-show="headline === 1">
+                                        <h5 class="form-title">Headline</h5>
+                                        <input type=text ng-model="temp1" style="width:95%;">
+                                        <div>
+                                            <input type=submit class="btn-submit" value="Save" ng-click="saveHeadline()">
+                                            <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="headline=0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="overlay-button edit-button" ng-click="headlineEditShow()" style="height: 24px; width: 24px;"></a>
                             </div>
                             <div class="overview-demographics">
-                                <h3>Ho Chi Minh City</h3>|
-                                <h3>Internet</h3>
-                                <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 19px; width: 19px; padding: 2px;"></a>
+                                <div class="container">
+                                    <h3>{{Location}}</h3>|
+                                    <h3>{{Industry}}</h3>
+                                    <div class="standard-form" ng-show="demo === 1">
+                                        <h5 class="form-title">Location</h5>
+                                        <input type=text ng-model="temp2" style="width:95%;">
+                                        <h5 class="form-title">Industry</h5>
+                                        <input type=text ng-model="temp3" style="width:95%;">
+                                        <div>
+                                            <input type=submit class="btn-submit" value="Save" ng-click="saveDemo()">
+                                            <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="demo=0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="overlay-button edit-button" ng-click="demoEditShow()" style="height: 19px; width: 19px; padding: 2px;"></a>
                             </div>
                             <div class="overview-current-previous-edu">
                                 <table>
@@ -40,10 +86,8 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="">LinkedIN</a>,
-                                                <a href="">Intui</a>,
-                                                <a href="">Dont</a>
-                                                <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 19px; width: 19px; padding: 2px;"></a>
+                                                <a href="" ng-repeat="item in Experience | filter: {EndDate: 'Present'} | limitTo: 3">{{item.Company}}, </a>
+                                                <a class="overlay-button edit-button" href="#bg-exp" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -53,10 +97,8 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="">LinkedIN</a>,
-                                                <a href="">Intui</a>,
-                                                <a href="">Dont</a>
-                                                <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 19px; width: 19px; padding: 2px;"></a>
+                                                <a href="" ng-repeat="item in Experience | filter: {EndDate: !'Present'} | limitTo: 3">{{item.Company}}, </a>
+                                                <a class="overlay-button edit-button" href="#bg-exp" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -66,10 +108,8 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="">LinkedIN</a>,
-                                                <a href="">Intui</a>,
-                                                <a href="">Dont</a>
-                                                <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 19px; width: 19px; padding: 2px;"></a>
+                                                <a href="" ng-repeat="item in Projects | limitTo: 3">{{item.Name}}, </a>
+                                                <a class="overlay-button edit-button" href="#bg-pj" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -79,10 +119,8 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="">LinkedIN</a>,
-                                                <a href="">Intui</a>,
-                                                <a href="">Dont</a>
-                                                <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 19px; width: 19px; padding: 2px;"></a>
+                                                <a href="" ng-repeat="item in Education | limitTo: 3">{{item.Name}},</a>
+                                                <a class="overlay-button edit-button" href="#bg-edu" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -105,33 +143,76 @@
             <div class="profile-background">
                 <h2>Background</h2>
                 <div class="bg-content">
+<!---------------------------------SUMMARY-------------------------------->
                     <div class="bg-summary">
                         <div class="bg-content-header">
-                            <h3>Summary</h3>
-                            <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
+                            <div class="container">
+                                <h3>Summary</h3>
+                                <div class="standard-form" ng-show="summary === 1" style="width: 500px; height: 500px;">
+                                    <h5 class="form-title">Summary</h5>
+                                    <textarea ng-model="temp4" style="width:98%;height:80%;"></textarea>
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="saveSummary()">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="summary=0">
+                                    </div>
+                                </div>
+                            </div>    
+                            <a class="overlay-button edit-button" ng-click="summaryEditShow()" style="height: 26px; width: 26px; padding: 2px; float: right;"></a>
                         </div>
-                        <p class="description">
-                            Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.<br><br> Currently CEO at LinkedIn, the web's largest and most powerful network of professionals.<br><br> Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.<br><br> Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.<br><br> Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance
-                        </p>
+                        <p class="description">{{Summary}}</p>
                     </div>
                     
 <!----------------------------EXPERIENCES--------------------------------->
                     <div class="bg-experience" id="bg-exp">
                         <div class="bg-content-header">
-                            <h3>Experience</h3>
-                            <a class="overlay-button add-button" ng-click="nameEditShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a> 
-                        </div>
-                        <div class="bg-exp-item">
-                            <a class="bg-exp-roll">Member, Board of Directors</a>
-                            <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 24px; width: 24px; padding: 2px; float: right;"></a>
-                            <a class="bg-exp-company">Intuit</a>
-                            <div class="bg-exp-date">
-                                <h4>April 2012 </h4>-
-                                <h4>Present</h4>
+                            <div class="container">
+                                <h3>Experience</h3>
+                                <div class="standard-form" ng-show="aexp==true">
+                                    <h5 class="form-title">Roll</h5>
+                                    <input type=text ng-model="temp6.Roll" style="width:95%;">
+                                    <h5 class="form-title">Company</h5>
+                                    <input type=text ng-model="temp6.Company" style="width:95%;">
+                                    <h5 class="form-title">Start Date</h5>
+                                    <input type=text ng-model="temp6.StartDate" style="width:95%;">
+                                    <h5 class="form-title">End Date</h5>
+                                    <input type=text ng-model="temp6.EndDate" style="width:95%;">
+                                    <h5 class="form-title">Description</h5>
+                                    <textarea ng-model="temp6.Description" style="width:400px;height:200px;"></textarea>
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="addExp()">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="aexp = false">
+                                    </div>
+                                </div>
                             </div>
-                            <p class="description">
-                                With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions.
-                            </p>
+                            <a class="overlay-button add-button" ng-click="expAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a> 
+                        </div>
+                        <div class="bg-exp-item" ng-repeat="item in Experience">
+                            <div class="container">
+                                <a class="bg-exp-roll">{{item.Roll}}</a>
+                                <div class="standard-form" ng-show="exp[$index]==true">
+                                    <h5 class="form-title">Roll</h5>
+                                    <input type=text ng-model="temp5.Roll" style="width:95%;">
+                                    <h5 class="form-title">Company</h5>
+                                    <input type=text ng-model="temp5.Company" style="width:95%;">
+                                    <h5 class="form-title">Start Date</h5>
+                                    <input type=text ng-model="temp5.StartDate" style="width:95%;">
+                                    <h5 class="form-title">End Date</h5>
+                                    <input type=text ng-model="temp5.EndDate" style="width:95%;">
+                                    <h5 class="form-title">Description</h5>
+                                    <textarea ng-model="temp5.Description" style="width:400px;height:200px;"></textarea>
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="saveExp($index)">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="exp[$index] = false">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="overlay-button edit-button" ng-click="expEditShow($index)" style="height: 24px; width: 24px; padding: 2px; float: right;"></a>
+                            <a class="bg-exp-company">{{item.Company}}</a>
+                            <div class="bg-exp-date">
+                                <h4>{{item.StartDate}}</h4>-
+                                <h4>{{item.EndDate}}</h4>
+                            </div>
+                            <p class="description">{{item.Description}}</p>
                         </div>
                     </div> 
 <!----------------------------SKILLS------------------------------------->  
@@ -142,9 +223,9 @@
                         </div>
                         <div class="bg-skills-content">
                             <ul class="pills">
-                                <li class="skill">
+                                <li class="skill" ng-repeat="item in Skills">
                                     <a href="">
-                                        <span class="wrap">Web Development</span>
+                                        <span class="wrap">{{item.Skill}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -152,48 +233,46 @@
                     </div>
                     
 <!-----------------------------PROJECTS---------------------------------->
-                    <div class="bg-project bg-summary">
+                    <div class="bg-project bg-summary" id="bg-pj">
                         <div class="bg-content-header">
                             <h3>Projects</h3>
                             <a class="overlay-button add-button" ng-click="projectAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
                         <div class="bg-projects-content">
-                            <div class="bg-projects-item bg-exp-item">
-                                <a class="bg-project-name bg-exp-roll">BOLYBI clothings store</a>
+                            <div class="bg-projects-item bg-exp-item" ng-repeat="item in Projects">
+                                <a class="bg-project-name bg-exp-roll">{{item.Name}}</a>
                                 <a class="overlay-button edit-button" ng-click="projectEditShow()" style="height: 24px; width: 24px; padding: 2px; float: right;"></a>
                                 <div class="bg-project-date bg-exp-date">
-                                    <h4>April 2012 </h4>-
-                                    <h4>Present</h4>
+                                    <h4>{{item.StartDate}}</h4>-
+                                    <h4>{{item.EndDate}}</h4>
                                 </div>
-                                <p class="description">
-                                    With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions.
-                                </p>
+                                <p class="description">{{item.Description}}</p>
                             </div>
                         </div>
                     </div>
                     
 <!----------------------------EDUCATION------------------------------------>
-                    <div class="bg-education bg-summary">
+                    <div class="bg-education bg-summary" id="bg-edu">
                         <div class="bg-content-header">
                             <h3>Education</h3>
                             <a class="overlay-button add-button" ng-click="eduAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
-                         <div class="bg-edu-content">
+                         <div class="bg-edu-content" ng-repeat="item in Education">
                             <div class="bg-edu-item bg-exp-item">
-                                <a class="bg-edu-name bg-exp-roll">University of Science</a>
+                                <a class="bg-edu-name bg-exp-roll">{{item.Name}}</a>
                                 <a class="overlay-button edit-button" ng-click="projectEditShow()" style="height: 20px; width: 20px; padding: 2px; float: right;"></a>
                                 <div>
-                                    <h3 class="degree-major">Bachelor</h3>,
-                                    <h3 class="degree-major">Information Technology</h3>
+                                    <h3 class="degree-major">{{item.Degree}}</h3>,
+                                    <h3 class="degree-major">{{item.Major}}</h3>
                                 </div>
                                 <div class="bg-project-date bg-exp-date">
-                                    <h4>September 2013</h4>-
-                                    <h4>Present</h4>
+                                    <h4>{{item.StartDate}}</h4>-
+                                    <h4>{{item.EndDate}}</h4>
                                 </div>
                             </div>
                              <div class="edu-img">
                                 <a href="">
-                                    <img src="images/hcmus.png">
+                                    <img ng-src={{item.imgSrc}}>
                                 </a>
                              </div>
                         </div>
