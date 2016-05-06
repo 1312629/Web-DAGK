@@ -60,12 +60,12 @@
     "Education":
     [
         {
-            "Name": "BOLYBI clothings store",
+            "Name": "University of Science",
             "Degree": "Bachelor",
-            "Mojor": "Information Technology",
+            "Major": "Information Technology",
             "StartDate": "Aug 2015",
             "EndDate": "Present",
-            "imgSrc": "images/hcmus.png"
+            "ImgSrc": "images/hcmus.png"
         }
     ]
 }

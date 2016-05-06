@@ -1,6 +1,6 @@
 angular.module('Midterm', [])
 .controller('MidtermCtrl', function($scope, $http){
-    $http.get('https://api.myjson.com/bins/4jnsc')
+    $http.get('https://api.myjson.com/bins/4t5lw')
          .success(function (data) {
             $scope.Avatar = data.Avatar;
             $scope.FName = data.FName;
@@ -64,12 +64,10 @@ angular.module('Midterm', [])
             $scope.expEditShow = function(index) {
                 $scope.temp5 = JSON.parse(JSON.stringify($scope.Experience[index]));
                 $scope.exp[index] = true;
-                console.log(index);
             };
             $scope.saveExp = function(index) {
                 $scope.Experience[index] = $scope.temp5;
                 $scope.exp[index] = false;
-                console.log(index);
             };
             $scope.expAddShow = function() {
                 $scope.aexp = true;
@@ -79,6 +77,57 @@ angular.module('Midterm', [])
                 $scope.Experience.push($scope.temp6);
                 $scope.aexp = false;
             }
+            $scope.skillAddShow = function() {
+                $scope.temp7 = {Skill:""};
+                $scope.skill = 1;
+            };
+            $scope.addSkill = function() {
+                $scope.Skills.push($scope.temp7);
+                $scope.skill = 0;
+            };
+        
+            $scope.pj = [];
+            while($scope.pj.length < $scope.Projects.length)
+                {
+                    $scope.pj.push(false);
+                }
+            $scope.projectAddShow = function() {
+                $scope.apj = true;
+                $scope.temp8 = {Name:"", StartDate:"", EndDate:"", Description:""};
+            };
+            $scope.addPj = function() {
+                $scope.apj = false;
+                $scope.Projects.push($scope.temp8);
+            };
+            $scope.projectEditShow = function(index) {
+                $scope.pj[index] = true;
+                $scope.temp9 = JSON.parse(JSON.stringify($scope.Projects[index]));
+            };
+            $scope.savePj = function(index) {
+                $scope.Projects[index] = $scope.temp9;
+                $scope.pj[index] = false;
+            };
+            $scope.eduAddShow = function() {
+                $scope.temp10 = {Name:"",Degree:"", Major:"", StartDate:"", EndDate:"", ImgSrc:""}; 
+                $scope.aedu = true;
+            };
+            $scope.addEdu = function() {
+                $scope.Education.push($scope.temp10);
+                $scope.aedu = false;
+            };
+            $scope.edu = [];
+            while($scope.edu.length < $scope.Education.length)
+                {
+                    $scope.edu.push(false);
+                }
+            $scope.eduEditShow = function(index) {
+                $scope.edu[index] = true;
+                $scope.temp11 = JSON.parse(JSON.stringify($scope.Education[index]));
+            };
+            $scope.saveEdu = function(index) {
+                $scope.Education[index] = $scope.temp11;
+                $scope.edu[index] = false;
+            };
          })
          .error(function (data, status, headers, config) {
              //  Do some error handling here

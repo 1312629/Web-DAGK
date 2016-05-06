@@ -218,7 +218,17 @@
 <!----------------------------SKILLS------------------------------------->  
                     <div class="bg-skills bg-summary">
                         <div class="bg-content-header">
-                            <h3>Skills</h3>
+                            <div class="container">
+                                <h3>Skills</h3>
+                                <div class="standard-form" style="top:10%;" ng-show="skill === 1">
+                                    <h5 class="form-title">Skills</h5>
+                                    <input type=text ng-model="temp7.Skill" style="width:95%;">
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="addSkill()">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="skill=0">
+                                </div>
+                        </div>
+                            </div>
                             <a class="overlay-button add-button" ng-click="skillAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
                         <div class="bg-skills-content">
@@ -235,13 +245,45 @@
 <!-----------------------------PROJECTS---------------------------------->
                     <div class="bg-project bg-summary" id="bg-pj">
                         <div class="bg-content-header">
-                            <h3>Projects</h3>
+                            <div class="container">
+                                <h3>Projects</h3>
+                                <div class="standard-form" ng-show="apj==true">
+                                    <h5 class="form-title">Name</h5>
+                                    <input type=text ng-model="temp8.Name" style="width:95%;">
+                                    <h5 class="form-title">Start Date</h5>
+                                    <input type=text ng-model="temp8.StartDate" style="width:95%;">
+                                    <h5 class="form-title">End Date</h5>
+                                    <input type=text ng-model="temp8.EndDate" style="width:95%;">
+                                    <h5 class="form-title">Description</h5>
+                                    <textarea ng-model="temp8.Description" style="width:400px;height:200px;"></textarea>
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="addPj()">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="apj = false">
+                                    </div>
+                                </div>
+                            </div>
                             <a class="overlay-button add-button" ng-click="projectAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
                         <div class="bg-projects-content">
                             <div class="bg-projects-item bg-exp-item" ng-repeat="item in Projects">
-                                <a class="bg-project-name bg-exp-roll">{{item.Name}}</a>
-                                <a class="overlay-button edit-button" ng-click="projectEditShow()" style="height: 24px; width: 24px; padding: 2px; float: right;"></a>
+                                <div class="container">
+                                    <a class="bg-project-name bg-exp-roll">{{item.Name}}</a>
+                                    <div class="standard-form" ng-show="pj[$index]==true">
+                                    <h5 class="form-title">Name</h5>
+                                    <input type=text ng-model="temp9.Name" style="width:95%;">
+                                    <h5 class="form-title">Start Date</h5>
+                                    <input type=text ng-model="temp9.StartDate" style="width:95%;">
+                                    <h5 class="form-title">End Date</h5>
+                                    <input type=text ng-model="temp9.EndDate" style="width:95%;">
+                                    <h5 class="form-title">Description</h5>
+                                    <textarea ng-model="temp9.Description" style="width:400px;height:200px;"></textarea>
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="savePj()">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="pj[$index] = false">
+                                    </div>
+                                </div>
+                                </div>
+                                <a class="overlay-button edit-button" ng-click="projectEditShow($index)" style="height: 24px; width: 24px; padding: 2px; float: right;"></a>
                                 <div class="bg-project-date bg-exp-date">
                                     <h4>{{item.StartDate}}</h4>-
                                     <h4>{{item.EndDate}}</h4>
@@ -254,13 +296,53 @@
 <!----------------------------EDUCATION------------------------------------>
                     <div class="bg-education bg-summary" id="bg-edu">
                         <div class="bg-content-header">
-                            <h3>Education</h3>
+                            <div class="container">
+                                <h3>Education</h3>
+                                <div class="standard-form" ng-show="aedu==true">
+                                    <h5 class="form-title">Name</h5>
+                                    <input type=text ng-model="temp10.Name" style="width:95%;">
+                                    <h5 class="form-title">Degree</h5>
+                                    <input type=text ng-model="temp10.Degree" style="width:95%;">
+                                    <h5 class="form-title">Major</h5>
+                                    <input type=text ng-model="temp10.Major" style="width:95%;">
+                                    <h5 class="form-title">Start Date</h5>
+                                    <input type=text ng-model="temp10.StartDate" style="width:95%;">
+                                    <h5 class="form-title">End Date</h5>
+                                    <input type=text ng-model="temp10.EndDate" style="width:95%;">
+                                    <h5 class="form-title">Image Source</h5>
+                                    <input type=text ng-model="temp10.ImgSrc" style="width:95%;">
+                                    <div>
+                                        <input type=submit class="btn-submit" value="Save" ng-click="addEdu()">
+                                        <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="aedu = false">
+                                    </div>
+                                </div>
+                            </div>
                             <a class="overlay-button add-button" ng-click="eduAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
                          <div class="bg-edu-content" ng-repeat="item in Education">
                             <div class="bg-edu-item bg-exp-item">
-                                <a class="bg-edu-name bg-exp-roll">{{item.Name}}</a>
-                                <a class="overlay-button edit-button" ng-click="projectEditShow()" style="height: 20px; width: 20px; padding: 2px; float: right;"></a>
+                                <div class="container">
+                                    <a class="bg-edu-name bg-exp-roll">{{item.Name}}</a>
+                                    <div class="standard-form" ng-show="edu[$index]==true">
+                                        <h5 class="form-title">Name</h5>
+                                        <input type=text ng-model="temp11.Name" style="width:95%;">
+                                        <h5 class="form-title">Degree</h5>
+                                        <input type=text ng-model="temp11.Degree" style="width:95%;">
+                                        <h5 class="form-title">Major</h5>
+                                        <input type=text ng-model="temp11.Major" style="width:95%;">
+                                        <h5 class="form-title">Start Date</h5>
+                                        <input type=text ng-model="temp11.StartDate" style="width:95%;">
+                                        <h5 class="form-title">End Date</h5>
+                                        <input type=text ng-model="temp11.EndDate" style="width:95%;">
+                                        <h5 class="form-title">Image Source</h5>
+                                        <input type=text ng-model="temp11.ImgSrc" style="width:95%;">
+                                        <div>
+                                            <input type=submit class="btn-submit" value="Save" ng-click="saveEdu($index)">
+                                            <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="edu[$index] = false">
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="overlay-button edit-button" ng-click="eduEditShow($index)" style="height: 20px; width: 20px; padding: 2px; float: right;"></a>
                                 <div>
                                     <h3 class="degree-major">{{item.Degree}}</h3>,
                                     <h3 class="degree-major">{{item.Major}}</h3>
@@ -272,7 +354,7 @@
                             </div>
                              <div class="edu-img">
                                 <a href="">
-                                    <img ng-src={{item.imgSrc}}>
+                                    <img ng-src={{item.ImgSrc}}>
                                 </a>
                              </div>
                         </div>
