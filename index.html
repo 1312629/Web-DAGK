@@ -36,8 +36,8 @@
                                     <div class="standard-form" ng-show="name === 1">
                                         <h5 class="form-title">Name</h5>
                                         <div>
-                                            <input type=text ng-model="FName">
-                                            <input type=text ng-model="LName">
+                                            <input type=text ng-model="tmp1">
+                                            <input type=text ng-model="tmp2">
                                         </div>
                                         <div>
                                             <input type=submit class="btn-submit" value="Save" ng-click="saveName()">
@@ -97,7 +97,7 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="" ng-repeat="item in Experience | filter: {EndDate: !'Present'} | limitTo: 3">{{item.Company}}, </a>
+                                                <a href="" ng-repeat="item in Experience | filter: {EndDate: '!Present'} | limitTo: 3">{{item.Company}}, </a>
                                                 <a class="overlay-button edit-button" href="#bg-exp" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
@@ -147,8 +147,9 @@
                     <div class="bg-summary">
                         <div class="bg-content-header">
                             <div class="container">
+                                <img class="bg-content-img" src="images/ic_summary.png"/>
                                 <h3>Summary</h3>
-                                <div class="standard-form" ng-show="summary === 1" style="width: 500px; height: 500px;">
+                                <div class="standard-form" ng-show="summary === 1" style="width: 500px; height: 500px;top:0">
                                     <h5 class="form-title">Summary</h5>
                                     <textarea ng-model="temp4" style="width:98%;height:80%;"></textarea>
                                     <div>
@@ -166,6 +167,7 @@
                     <div class="bg-experience" id="bg-exp">
                         <div class="bg-content-header">
                             <div class="container">
+                                <img class="bg-content-img" src="images/ic_exp.png"/>
                                 <h3>Experience</h3>
                                 <div class="standard-form" ng-show="aexp==true">
                                     <h5 class="form-title">Roll</h5>
@@ -219,6 +221,7 @@
                     <div class="bg-skills bg-summary">
                         <div class="bg-content-header">
                             <div class="container">
+                                <img class="bg-content-img" src="images/ic_skills.png"/>
                                 <h3>Skills</h3>
                                 <div class="standard-form" style="top:10%;" ng-show="skill === 1">
                                     <h5 class="form-title">Skills</h5>
@@ -246,6 +249,7 @@
                     <div class="bg-project bg-summary" id="bg-pj">
                         <div class="bg-content-header">
                             <div class="container">
+                                <img class="bg-content-img" src="images/ic_pj.png"/>
                                 <h3>Projects</h3>
                                 <div class="standard-form" ng-show="apj==true">
                                     <h5 class="form-title">Name</h5>
@@ -297,6 +301,7 @@
                     <div class="bg-education bg-summary" id="bg-edu">
                         <div class="bg-content-header">
                             <div class="container">
+                                <img class="bg-content-img" src="images/ic_edu.png"/>
                                 <h3>Education</h3>
                                 <div class="standard-form" ng-show="aedu==true">
                                     <h5 class="form-title">Name</h5>

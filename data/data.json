@@ -1,5 +1,5 @@
 {
-    "Avatar": "images/avatar.jpg",
+    "Avatar": "images/avatar.png",
     "FName": "Nguyễn Viết",
     "LName": "Trí",
     "Headline": "Student at HCMUS",
@@ -14,7 +14,7 @@
             "Roll": "Member, Board of Directors",
             "Company": "Intuit",
             "StartDate": "April 2012",
-            "EndDate": "Present",
+            "EndDate": "April 2012",
             "Description": "With revenue of $4B+ and approximately 8,000 employees, Intuit is a leading provider of innovative business and financial management solutions for small and medium-sized businesses, consumers, accounting professionals and financial institutions."
         },
         {

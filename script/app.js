@@ -1,6 +1,6 @@
 angular.module('Midterm', [])
 .controller('MidtermCtrl', function($scope, $http){
-    $http.get('https://api.myjson.com/bins/4t5lw')
+    $http.get('data/data.json')
          .success(function (data) {
             $scope.Avatar = data.Avatar;
             $scope.FName = data.FName;
@@ -16,13 +16,17 @@ angular.module('Midterm', [])
             $scope.Education = data.Education;
             $scope.name = 0;
             $scope.nameEditShow =  function() {
+                $scope.tmp1 =  JSON.parse(JSON.stringify($scope.FName));
+                $scope.tmp2 = JSON.parse(JSON.stringify($scope.LName));
                 $scope.name = 1;
             };
             $scope.profileImageEditShow = function() {
                 $scope.avatar = 1;
-                $scope.temp = $scope.Avatar;
+                $scope.temp = JSON.parse(JSON.stringify($scope.Avatar));
             };
             $scope.saveName = function() {
+                $scope.FName = $scope.tmp1;
+                $scope.LName = $scope.tmp2;
                 $scope.Name=$scope.FName + " " + $scope.LName;
                 $scope.name = 0;
             };
@@ -31,7 +35,7 @@ angular.module('Midterm', [])
                 $scope.avatar = 0;
             };
             $scope.headlineEditShow = function() {
-                $scope.temp1 = $scope.Headline;
+                $scope.temp1 = JSON.parse(JSON.stringify($scope.Headline));
                 $scope.headline = 1;
             };
             $scope.saveHeadline = function() {
@@ -39,8 +43,8 @@ angular.module('Midterm', [])
                 $scope.headline = 0;
             };
             $scope.demoEditShow = function() {
-                $scope.temp2 = $scope.Location;
-                $scope.temp3 = $scope.Industry;
+                $scope.temp2 = JSON.parse(JSON.stringify($scope.Location));
+                $scope.temp3 = JSON.parse(JSON.stringify($scope.Industry));
                 $scope.demo = 1;
             };
             $scope.saveDemo = function() {
