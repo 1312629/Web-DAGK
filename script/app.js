@@ -1,6 +1,6 @@
 angular.module('Midterm', [])
 .controller('MidtermCtrl', function($scope, $http){
-    $http.get('data/data.json')
+    $http.get('https://api.myjson.com/bins/29wyo')
          .success(function (data) {
             $scope.Avatar = data.Avatar;
             $scope.FName = data.FName;
