@@ -7,6 +7,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="script/angular.js"></script>
     <script type="text/javascript" src="script/app.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 </head>
 
 <body ng-app="Midterm">
@@ -16,7 +20,7 @@
             <div class="profile-topcard">
                 <div class="profile-avatar">
                     <div class="container">
-                        <img id="profile-image" ng-src={{Avatar}}>
+                        <img id="profile-image" ng-src={{data.Avatar}}>
                         <div class="standard-form" style="top:10%;" ng-show="avatar === 1">
                             <h5 class="form-title">Profile Image</h5>
                             <input type=text ng-model="temp" style="width:95%;">
@@ -32,7 +36,7 @@
                         <div class="overview-content">
                             <div class="overview-content-name">
                                 <div class="container">
-                                    <h1>{{Name}}</h1>
+                                    <h1>{{data.FName + " " + data.LName}}</h1>
                                     <div class="standard-form" ng-show="name === 1">
                                         <h5 class="form-title">Name</h5>
                                         <div>
@@ -49,7 +53,7 @@
                             </div>
                             <div class="overview-headline">
                                 <div class="container">
-                                    <h2>{{Headline}}</h2>
+                                    <h2>{{data.Headline}}</h2>
                                     <div class="standard-form" ng-show="headline === 1">
                                         <h5 class="form-title">Headline</h5>
                                         <input type=text ng-model="temp1" style="width:95%;">
@@ -63,8 +67,8 @@
                             </div>
                             <div class="overview-demographics">
                                 <div class="container">
-                                    <h3>{{Location}}</h3>|
-                                    <h3>{{Industry}}</h3>
+                                    <h3>{{data.Location}}</h3>|
+                                    <h3>{{data.Industry}}</h3>
                                     <div class="standard-form" ng-show="demo === 1">
                                         <h5 class="form-title">Location</h5>
                                         <input type=text ng-model="temp2" style="width:95%;">
@@ -86,7 +90,7 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="" ng-repeat="item in Experience | filter: {EndDate: 'Present'} | limitTo: 3">{{item.Company}}, </a>
+                                                <a href="" ng-repeat="item in data.Experience | filter: {EndDate: 'Present'} | limitTo: 3">{{item.Company}}, </a>
                                                 <a class="overlay-button edit-button" href="#bg-exp" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
@@ -97,7 +101,7 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="" ng-repeat="item in Experience | filter: {EndDate: '!Present'} | limitTo: 3">{{item.Company}}, </a>
+                                                <a href="" ng-repeat="item in data.Experience | filter: {EndDate: '!Present'} | limitTo: 3">{{item.Company}}, </a>
                                                 <a class="overlay-button edit-button" href="#bg-exp" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
@@ -108,7 +112,7 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="" ng-repeat="item in Projects | limitTo: 3">{{item.Name}}, </a>
+                                                <a href="" ng-repeat="item in data.Projects | limitTo: 3">{{item.Name}}, </a>
                                                 <a class="overlay-button edit-button" href="#bg-pj" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
@@ -119,7 +123,7 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a href="" ng-repeat="item in Education | limitTo: 3">{{item.Name}},</a>
+                                                <a href="" ng-repeat="item in data.Education | limitTo: 3">{{item.Name}},</a>
                                                 <a class="overlay-button edit-button" href="#bg-edu" style="height: 19px; width: 19px; padding: 2px;"></a>
                                             </div>
                                         </td>
@@ -160,7 +164,7 @@
                             </div>    
                             <a class="overlay-button edit-button" ng-click="summaryEditShow()" style="height: 26px; width: 26px; padding: 2px; float: right;"></a>
                         </div>
-                        <p class="description">{{Summary}}</p>
+                        <p class="description">{{data.Summary}}</p>
                     </div>
                     
 <!----------------------------EXPERIENCES--------------------------------->
@@ -188,7 +192,7 @@
                             </div>
                             <a class="overlay-button add-button" ng-click="expAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a> 
                         </div>
-                        <div class="bg-exp-item" ng-repeat="item in Experience">
+                        <div class="bg-exp-item" ng-repeat="item in data.Experience">
                             <div class="container">
                                 <a class="bg-exp-roll">{{item.Roll}}</a>
                                 <div class="standard-form" ng-show="exp[$index]==true">
@@ -236,7 +240,7 @@
                         </div>
                         <div class="bg-skills-content">
                             <ul class="pills">
-                                <li class="skill" ng-repeat="item in Skills">
+                                <li class="skill" ng-repeat="item in data.Skills">
                                     <a href="">
                                         <span class="wrap">{{item.Skill}}</span>
                                     </a>
@@ -269,7 +273,7 @@
                             <a class="overlay-button add-button" ng-click="projectAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
                         <div class="bg-projects-content">
-                            <div class="bg-projects-item bg-exp-item" ng-repeat="item in Projects">
+                            <div class="bg-projects-item bg-exp-item" ng-repeat="item in data.Projects">
                                 <div class="container">
                                     <a class="bg-project-name bg-exp-roll">{{item.Name}}</a>
                                     <div class="standard-form" ng-show="pj[$index]==true">
@@ -282,7 +286,7 @@
                                     <h5 class="form-title">Description</h5>
                                     <textarea ng-model="temp9.Description" style="width:400px;height:200px;"></textarea>
                                     <div>
-                                        <input type=submit class="btn-submit" value="Save" ng-click="savePj()">
+                                        <input type=submit class="btn-submit" value="Save" ng-click="savePj($index)">
                                         <input type="button" class="btn-cancel btn-submit" value="Cancel" ng-click="pj[$index] = false">
                                     </div>
                                 </div>
@@ -324,7 +328,7 @@
                             </div>
                             <a class="overlay-button add-button" ng-click="eduAddShow()" style="height: 26px; width: 26px; padding: 2px; float:right;"></a>
                         </div>
-                         <div class="bg-edu-content" ng-repeat="item in Education">
+                         <div class="bg-edu-content" ng-repeat="item in data.Education">
                             <div class="bg-edu-item bg-exp-item">
                                 <div class="container">
                                     <a class="bg-edu-name bg-exp-roll">{{item.Name}}</a>
