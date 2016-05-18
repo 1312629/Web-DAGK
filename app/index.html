@@ -5,6 +5,7 @@
     <title>Nguyen Viet Tri | 1312629</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <script type="text/javascript" src="script/angular.js"></script>
     <script type="text/javascript" src="script/app.js"></script>
     <!-- Firebase -->
@@ -13,7 +14,15 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 </head>
 
-<body ng-app="Midterm">
+<body ng-app="Midterm" ng-controller="MidtermCtrl">
+    <div class="nav-bar">
+        <div class="nav-wrap">
+            <div class="right-nav">
+                <a class="nav-link" href="">{{Username}}</a>
+                <a class="nav-link" href="" ng-click="login=SignOut()">Sign Out</a>
+            </div>
+        </div>
+    </div>
     <div id="profile-page" ng-controller="MidtermCtrl">
         <img id="cover-image" src="images/cover-image.jpg"  alt="cover-image">
         <div id="profile-content">
@@ -371,5 +380,24 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="blur" ng-show="login == false">
+
+    </div>
+    <div class="form-login" ng-show="login == false">
+        <header>
+            <h1>LOGIN</h1>
+        </header>
+        <div class="form-login-wrap">
+            <div class="btn-fb-login" ng-click="login = btnLoginFBClick()">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                Login by FACEBOOK
+            </div>
+            <div class="btn-gg-login btn-fb-login" ng-click="login = btnLoginGGClick()">
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                Login by GOOGLE
+            </div>
+        </div>
+    
     </div>
 </body>

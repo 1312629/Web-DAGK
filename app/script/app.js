@@ -4,8 +4,70 @@ angular.module('Midterm', ["firebase"])
     var ref =  new Firebase(link);
     var obj = $firebaseObject(ref);
     obj.$bindTo($scope,'data');
+    window.sc = $scope;
+    $scope.login = false;
+    $scope.Username = "";
+    
+    function authDataCallback(authData) {
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            $scope.login = true;
+            if(authData.provider == "facebook") {
+                $scope.Username = authData.facebook.displayName;
+            }
+            else{
+                $scope.Username = authData.google.displayName;
+            }
+        } 
+        else {
+            console.log("User is logged out");
+        }
+    }
+    
+    ref.onAuth(authDataCallback);
+    
+    
+    $scope.btnLoginFBClick = function() {
+        ref.authWithOAuthPopup("facebook", function(error, authData) {
+        if (error) {
+            console.log("Login Failed!", error);
+        } else {
+            console.log("Authenticated successfully with payload:", authData);
+            $scope.Username = authData.facebook.displayName;
+            $scope.$apply();
+            return true;
+          }
+        },
+        {
+            remember: "sessionOnly",
+            scope: "email,user_likes"
+        });
+    };
+    
+    $scope.SignOut = function(){
+        ref.unauth();
+        $scope.Username = "";
+        return false;
+    };
+    
+    $scope.btnLoginGGClick = function() {
+        ref.authWithOAuthPopup("google", function(error, authData) {
+        if (error) {
+            console.log("Login Failed!", error);
+        } else {
+            console.log("Authenticated successfully with payload:", authData);
+            $scope.Username = authData.google.displayName;
+            $scope.$apply();
+            return true;
+          }
+        },
+        {
+            remember: "sessionOnly",
+            scope: "email"
+        });
+    };
+    
     obj.$loaded().then(function(data) { 
-        window.sc = $scope;
         $scope.name = 0;
         $scope.nameEditShow =  function() {
             $scope.tmp1 =  JSON.parse(JSON.stringify($scope.data.FName));

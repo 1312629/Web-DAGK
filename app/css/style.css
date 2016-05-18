@@ -413,6 +413,14 @@ body{
     background-color: #287bbc;
     color: #fff;
 }
+.btn-submit:hover{
+    color: #FF5252;
+    -webkit-transition: color 0.2s ease-out;
+     -moz-transition: color 0.2s ease-out;
+     -o-transition: color 0.2s ease-out;
+     -ms-transition: color 0.2s ease-out;
+     transition: color 0.2s ease-out;
+}
 .btn-cancel{
     background-color: #e8e8e8;
     margin-left: 5px;
@@ -420,10 +428,113 @@ body{
     border-color: #a7a7a7;
     color: #666 !important;
 }
+.btn-cancel:hover{
+    color: #FF5252!important;
+}
 
 .bg-content-img {
     margin-top: -10px;
 }
 
+.blur {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    opacity: 0.98;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.form-login {
+    width: 620px;
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    z-index: 1001;
+}
+.form-login header{
+    background: rgb(39, 59, 145);
+    border-bottom: 5px solid #EC2426;
+    padding: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 24px;
+}
+.form-login h1{
+    display: block;
+    color: #fff;
+    line-height: 80px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500px;
+}
+.form-login-wrap{
+    width: 420px;
+    margin: 0 auto;
+}
+.btn-fb-login{
+    display: block;
+    background-color: rgb(39, 59, 145);
+    color: #fff;
+    line-height: 50px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.btn-fb-login i{
+    line-height: 50px !important;
+    width: 60px !important;
+    background-color: #203272 !important;
+    font-size: 30px !important;
+    display: inline-block !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.btn-gg-login {
+    background-color: #EF4C51!important;
+}
+.btn-gg-login i{
+    background-color: #EC2426 !important;
+}
+
+.nav-bar{
+    z-index: 99;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color: #3f3f3f;
+    background-image: -webkit-linear-gradient(top, #696969,#3f3f3f);
+    box-shadow: 0 0 10px #333;
+    height: 42px;
+}
+.right-nav {
+    padding-top: 13.5px;
+    float: right;
+    height: 100%;
+    vertical-align: middle;
+}
+.nav-link{
+    color: #d7d7d7;
+    padding: 13.5px 10px 14.5px 10px;
+    vertical-align: middle;
+}
+.nav-link:hover{
+    text-decoration: none;
+    color: #006fa6;
+}
+.nav-wrap{
+    width: 974px;
+    margin: 0 auto;
+}
 
 
